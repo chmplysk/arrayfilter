@@ -24,14 +24,15 @@ public class ArrayFilter {
 	//This method will check array if its filter array or not.
 	public static int isFilter(int[] array) {
 		
-		int filter = 0;
+		int filter = 1;
 		
 		//Check if array has 9 and 11
 		for(int i : array) {	
 			if(i == 9) {
+				filter = 0;		    //Set filter to 0 if array contains 9
 				for(int j : array) {
 					if(j == 11) {
-						filter = 1; //Set filter to 1 if array contains 9 and 11;
+						filter = 1; //Set filter to 1 if array contains 9 and 11
 					}
 				}
 			}
@@ -43,7 +44,7 @@ public class ArrayFilter {
 				filter = 1;
 				for(int j : array) {
 					if(j == 13) {
-						filter = 0; //Set filter to 0 if array contains 9 and 11;
+						filter = 0; //Set filter to 0 if array contains 7 and 13;
 					}
 				}
 			}
