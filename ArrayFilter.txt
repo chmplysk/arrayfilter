@@ -1,0 +1,54 @@
+
+public class ArrayFilter {
+
+	public static void main(String[] args) {
+		
+		//Sample for filter array
+		int[] array1 = {1, 2, 3, 9, 6, 11} ;
+		int[] array2 = {3, 4, 6, 7, 14, 16};
+		int[] array3 = {1, 2, 3, 4, 10, 11, 13};
+		int[] array4 = {3, 6, 5, 5, 13, 6,  13};
+	
+		System.out.println("Array1 result : "+isFilter(array1));
+		System.out.println("Array2 result : "+isFilter(array2));
+		System.out.println("Array3 result : "+isFilter(array3));
+		System.out.println("Array4 result : "+isFilter(array4));
+		
+		//Sample for not filter array
+		int[] array5 = {9, 6, 18};
+		int[] array6 = {4, 7, 13};
+
+		System.out.println("Array5 result : "+isFilter(array5));
+		System.out.println("Array6 result : "+isFilter(array6));
+	}
+	//This method will check array if its filter array or not.
+	public static int isFilter(int[] array) {
+		
+		int filter = 0;
+		
+		//Check if array has 9 and 11
+		for(int i : array) {	
+			if(i == 9) {
+				for(int j : array) {
+					if(j == 11) {
+						filter = 1; //Set filter to 1 if array contains 9 and 11;
+					}
+				}
+			}
+		}
+		
+		//Check if array has 7 but no 13
+		for(int i : array) {
+			if(i == 7) {
+				filter = 1;
+				for(int j : array) {
+					if(j == 13) {
+						filter = 0; //Set filter to 0 if array contains 9 and 11;
+					}
+				}
+			}
+		}
+		return filter; //return 1 if array is a filter array else 0 if not
+	}
+
+}
